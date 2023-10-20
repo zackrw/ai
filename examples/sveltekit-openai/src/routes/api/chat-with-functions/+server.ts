@@ -1,6 +1,5 @@
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
-import type { CompletionCreateParams } from 'openai/resources/chat';
 
 import { env } from '$env/dynamic/private';
 
@@ -8,7 +7,7 @@ const openai = new OpenAI({
   apiKey: env.OPENAI_API_KEY || '',
 });
 
-const functions: CompletionCreateParams.Function[] = [
+const functions: OpenAI.Chat.ChatCompletionCreateParams.Function[] = [
   {
     name: 'get_current_weather',
     description: 'Get the current weather',
